@@ -1,5 +1,5 @@
-#ifndef STOCKOO_H_
-#define STOCKOO_H_
+#ifndef STOCKSOO_H_
+#define STOCKSOO_H_
 #include<string>
 
 class Stock
@@ -13,7 +13,7 @@ class Stock
     public:
         Stock();
         Stock(const std::string & co, long n=0, double pr=0.0);
-        ~Stock();
+        ~Stock(){};
         void buy(long num, double price);
         void sell(long num, double price);
         void update(double price);

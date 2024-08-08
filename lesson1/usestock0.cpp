@@ -10,7 +10,8 @@ int main()
     stock1.show();
     Stock stock2=Stock("BurakPOL",2,2.0);
     stock2.show();
-
+    Stock stock3;
+    
     cout<<"Przypisanie stock1 do stock2:\n";
     stock2=stock1;
     cout<<"Wypis ze stock1 i stock2:\n";
