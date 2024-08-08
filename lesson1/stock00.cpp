@@ -1,7 +1,16 @@
 #include<iostream>
 #include"stocks00.h"
-void Stock::acquire(const std::string & co, long n, double pr)
+Stock::Stock()
 {
+    std::cout<<"Wywolano konsturkotor domyslny\n";
+    company="bez nazwy";
+    shares=0;
+    share_val=0.0;
+    total_val=0.0;
+}
+Stock::Stock(const std::string & co, long n, double pr)
+{
+    std::cout<<"Wywolano konstuktor z argumentem "<<co<<'\n';
     company=co;
     if(n<0)
     {
@@ -55,8 +64,16 @@ void Stock::update(double price)
 }
 void Stock::show()
 {
-    std::cout<<"Spolka: "<<company 
-        <<" Liczba udzialow: "<<shares<<'\n'
-        <<"Cena udzialu: "<<share_val<<" zl"
-        <<" Laczna wartosc udzialow: "<<total_val<<" zl "<<'\n';
+    using std::cout;
+    using std::ios_base;
+    ios_base::fmtflags orig=
+        cout.setf(ios_base::fixed, ios_base::floatfield);
+    std::streamsize prec=cout.precision(3);
+    cout<<"Spolka: "<<company 
+    <<" Liczba udzialow: "<<shares<<'\n';
+    cout<<" Cena udzialow: "<<share_val<<" zl";
+    cout.precision(2);
+    cout<<" Laczna wartosc udzialow: "<<total_val<<" zl"<<'\n';
+    cout.setf(orig, ios_base::floatfield);
+    cout.precision(prec);
 }
