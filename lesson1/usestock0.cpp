@@ -1,28 +1,24 @@
 #include<iostream>
 #include"stocks00.h"
+
+const int STKS=4;
 int main()
 {
-    using std::cout;
-    using std::ios_base;
-
-    cout<<"Tworznie nowych obiektow przy uzyciu konsturkctoruw\n";
-    Stock stock1("NanoSmart",20,12.50);
-    stock1.show();
-    Stock stock2=Stock("BurakPOL",2,2.0);
-    stock2.show();
-    Stock stock3;
-    
-    cout<<"Przypisanie stock1 do stock2:\n";
-    stock2=stock1;
-    cout<<"Wypis ze stock1 i stock2:\n";
-    stock1.show();
-    stock2.show();
-
-    cout<<"Wyzerwoanie obiktu konsturktorem\n";
-    stock1=Stock("FutroPOL",10,50.0);
-    cout<<"Nowa wersja stock1:\n";
-    stock1.show();
-    cout<<"Gotowe\n";
+    Stock stocks[STKS]{
+        Stock("NanoSmart",12,20.0),
+        Stock("BurakPOL",100,2.0),
+        Stock("GruzPOL",130,3.25),
+        Stock("FutroPOL",60,6.5)
+    };
+    std::cout<<"Portfel inwestycyjny:\n";
+    int st;
+    for(st=0;st<STKS;st++)
+        stocks[st].show();
+    const Stock* top=&stocks[0];
+    for(st=0; st<STKS; st++)
+        top=&(top->topval(stocks[st]));
+    std::cout<<"\nNajbardziej wartosciowy pakiet:\n";
+    top->show();
     std::cin.get();
     std::cin.get();
     return 0;
