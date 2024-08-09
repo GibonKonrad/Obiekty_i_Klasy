@@ -15,7 +15,7 @@ int main()
     for(st=0;st<STKS;st++)
         stocks[st].show();
     const Stock* top=&stocks[0];
-    for(st=0; st<STKS; st++)
+    for(st=0;st<STKS; st++)  
         top=&(top->topval(stocks[st]));
     std::cout<<"\nNajbardziej wartosciowy pakiet:\n";
     top->show();
