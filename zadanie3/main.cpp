@@ -4,7 +4,7 @@
 int main()
 {
     using namespace std;
-    Lista obj1(7);
+    Lista obj1(2);
     obj1.dodaj("Paplotka");
     obj1.show();
     obj1.visit(usun);

@@ -8,23 +8,14 @@ struct element
     int nr_elementu;
     string zawartosc;
 };
-void usun(element & a)
-{
-    a.zawartosc="";
-}
-void zmien(element & a)
-{
-    cout<<"Na co chcesz zmienic zwartosc: "<<endl;
-    string zaw;
-    cin>>zaw;
-    a.zawartosc=zaw;
-}
+void usun(element & a);
+void zmien(element & a);
 class Lista
 {
     private:
-        enum{Len=20};
+        enum{pocz=0,Len=20};
         element elementy[Len];
-        int top;
+        int top=pocz;
         int filled;
     public:
         Lista(int ilosc);

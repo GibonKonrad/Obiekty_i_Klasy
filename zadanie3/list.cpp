@@ -1,5 +1,16 @@
 #include"list.h"
 #include<iostream>
+void usun(element & a)
+{
+    a.zawartosc="";
+}
+void zmien(element & a)
+{
+    cout<<"Na co chcesz zmienic zwartosc: "<<endl;
+    string zaw;
+    cin>>zaw;
+    a.zawartosc=zaw;
+}
 Lista::Lista(int ilosc)
 {
     for(int i=0; i<ilosc; i++)
@@ -9,6 +20,7 @@ Lista::Lista(int ilosc)
         elementy[i].nr_elementu=i+1;
     }
     filled=ilosc;
+    top+=ilosc-1;
 }
 bool Lista::isEmpty()
 {
@@ -27,8 +39,9 @@ void Lista::dodaj(string napis)
 {
     if(Lista::isFull()==false)
     {
-        elementy[top+1].nr_elementu=top+1;
+        elementy[top+1].nr_elementu=top+2;
         elementy[++top].zawartosc=napis;
+        filled++;
     }
     else
     {
@@ -39,14 +52,14 @@ void Lista::show()
 {
     for(int i=0; i<filled; i++)
     {
-        cout<<elementy[i].nr_elementu<<". element"
+        cout<<elementy[i].nr_elementu<<". element: "
         <<elementy[i].zawartosc<<endl;
     }
 }
 void Lista::visit(void (*pf)(element & el))
 {
     cout<<"Na jakim elemencie chcesz wykonac operacje: "<<endl;
-    int element;
-    Lista::show();
-    (*pf)(elementy[element-1]);
+    int element1;
+    cin>>element1;
+    (*pf)(elementy[element1-1]);
 }
